@@ -1,4 +1,4 @@
-console.log("ok")
+const library = []
 
 function Book(title, author, pages){
     if(!new.target){
@@ -13,11 +13,10 @@ function Book(title, author, pages){
      }
 }
 
-const books = []
-function createBook(title, author, pages){
+function addBookToLibrary(title, author, pages){
     const book = new Book(title, author, pages)
-    books.push(book)
+    library.push(book)
 }
 
-createBook("The Hobbit", "", "230")
-console.log(books)
+addBookToLibrary("The Hobbit", "", "230")
+console.log(library)
