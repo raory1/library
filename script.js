@@ -18,5 +18,18 @@ function addBookToLibrary(title, author, pages){
     library.push(book)
 }
 
-addBookToLibrary("The Hobbit", "", "230")
+function displayBooks(){
+    library.forEach(book => {
+        const div = document.createElement("div")
+        const p = document.createElement("p")
+        p.append(`${book.title}, write by ${book.author}, has ${book.pages} page(s)`)
+        div.append(p)
+        document.body.append(div)
+    })
+}
+
+addBookToLibrary("The Hobbit", "aa", "230")
+addBookToLibrary("O guarani", "José de Alencar", "230")
+addBookToLibrary("A Sereia", "Kiera Cass", "200")
+displayBooks()
 console.log(library)
