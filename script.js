@@ -2,6 +2,9 @@ const library = []
 const showBtn = document.getElementById("show-dialog");
 const dialog = document.getElementById("dialog");
 const submitBtn = dialog.querySelector("#submitBtn");
+const bookTitle = document.getElementById("title")
+const bookAuthor = document.getElementById("author")
+const bookPages = document.getElementById("pages")
 
 function Book(title, author, pages){
     if(!new.target){
@@ -34,14 +37,16 @@ function displayBooks(){
 addBookToLibrary("The Hobbit", "aa", "230")
 addBookToLibrary("O guarani", "José de Alencar", "230")
 addBookToLibrary("A Sereia", "Kiera Cass", "200")
-displayBooks()
 console.log(library)
 
 showBtn.addEventListener("click", () => {
   dialog.showModal();
 });
 
-jsCloseBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  dialog.close();
+submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value)
+    displayBooks()
+    dialog.close();
 });
+

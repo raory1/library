@@ -13,11 +13,38 @@
     <dialog id="dialog">
       <form method="dialog">
         <p></p>
-        <label
-          >Book name:
-          <input type="text" required />
+        <label>
+          Book title:
+          <input
+            id="title"
+            name="title"
+            placeholder="The hobbit"
+            type="text"
+            required
+          />
         </label>
-        <input type="submit" id="submitBtn" value="Add to library"/>
+        <label>
+          Book title:
+          <input
+            id="author"
+            name="author"
+            placeholder="Kiera Cass"
+            type="text"
+            required
+          />
+        </label>
+        <label>
+          Book title:
+          <input
+            id="pages"
+            name="pages"
+            placeholder="244"
+            type="number"
+            min="1"
+            required
+          />
+        </label>
+        <input type="submit" id="submitBtn" value="Add to library" />
       </form>
     </dialog>
   </body>
