@@ -1,4 +1,7 @@
 const library = []
+const showBtn = document.getElementById("show-dialog");
+const dialog = document.getElementById("dialog");
+const submitBtn = dialog.querySelector("#submitBtn");
 
 function Book(title, author, pages){
     if(!new.target){
@@ -33,3 +36,12 @@ addBookToLibrary("O guarani", "José de Alencar", "230")
 addBookToLibrary("A Sereia", "Kiera Cass", "200")
 displayBooks()
 console.log(library)
+
+showBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+jsCloseBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  dialog.close();
+});
