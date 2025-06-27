@@ -8,7 +8,7 @@ const bookPages = document.getElementById("pages")
 
 const table = document.getElementById("books-table")
 
-function Book(title, author, pages){
+function Book(title, author, pages, status){
     if(!new.target){
         throw Error("You must use the 'new' operator to call the constructor");
     }
@@ -16,9 +16,7 @@ function Book(title, author, pages){
     this.title = title
     this.author = author
     this.pages = pages
-    this.info = function(){
-        return(`${this.title}, ${this.author}, ${this.pages} pages`)
-     }
+    this.status = status
 }
 
 function addBookToLibrary(title, author, pages){
