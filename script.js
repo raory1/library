@@ -6,6 +6,7 @@ const cancelBtn = dialog.querySelector("#cancelBtn");
 const bookTitle = document.getElementById("title")
 const bookAuthor = document.getElementById("author")
 const bookPages = document.getElementById("pages")
+const form = document.getElementById("book-form");
 
 const table = document.getElementById("books-table")
 const tbody = document.querySelector("#books-table tbody")
@@ -48,9 +49,13 @@ showBtn.addEventListener("click", () => {
 });
 
 submitBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value)
-    displayBooks()
+    if(form.checkValidity() === true){
+        e.preventDefault();
+        addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value)
+        displayBooks()
+        form.reset();
+        dialog.close();
+    }
 });
 
 cancelBtn.addEventListener("click", (e) =>{
