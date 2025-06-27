@@ -19,8 +19,8 @@ function Book(title, author, pages, status){
     this.status = status
 }
 
-function addBookToLibrary(title, author, pages){
-    const book = new Book(title, author, pages)
+function addBookToLibrary(title, author, pages, status){
+    const book = new Book(title, author, pages, status)
     library.push(book)
 }
 
@@ -37,9 +37,9 @@ function displayBooks(){
     })
 }
 
-addBookToLibrary("The Hobbit", "aa", "230")
-addBookToLibrary("O guarani", "José de Alencar", "230")
-addBookToLibrary("A Sereia", "Kiera Cass", "200")
+addBookToLibrary("The Hobbit", "aa", "230", true)
+addBookToLibrary("O guarani", "José de Alencar", "230", true)
+addBookToLibrary("A Sereia", "Kiera Cass", "200", false)
 console.log(library)
 
 showBtn.addEventListener("click", () => {
