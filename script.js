@@ -6,6 +6,8 @@ const bookTitle = document.getElementById("title")
 const bookAuthor = document.getElementById("author")
 const bookPages = document.getElementById("pages")
 
+const table = document.getElementById("books-table")
+
 function Book(title, author, pages){
     if(!new.target){
         throw Error("You must use the 'new' operator to call the constructor");
@@ -26,11 +28,14 @@ function addBookToLibrary(title, author, pages){
 
 function displayBooks(){
     library.forEach(book => {
-        const div = document.createElement("div")
-        const p = document.createElement("p")
-        p.append(`${book.title}, write by ${book.author}, has ${book.pages} page(s)`)
-        div.append(p)
-        document.body.append(div)
+        const tr = document.createElement("tr")
+        for(const property in book) {
+            console.log(`${property}: ${book[property]}`)
+            const td = document.createElement("td")
+            td.innerText = book[property]
+            tr.append(td)
+        }
+        table.append(tr)
     })
 }
 
@@ -49,4 +54,6 @@ submitBtn.addEventListener("click", (e) => {
     displayBooks()
     dialog.close();
 });
+
+displayBooks()
 
