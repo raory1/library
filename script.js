@@ -2,6 +2,7 @@ const library = []
 const showBtn = document.getElementById("show-dialog");
 const dialog = document.getElementById("dialog");
 const submitBtn = dialog.querySelector("#submitBtn");
+const cancelBtn = dialog.querySelector("#cancelBtn");
 const bookTitle = document.getElementById("title")
 const bookAuthor = document.getElementById("author")
 const bookPages = document.getElementById("pages")
@@ -50,8 +51,12 @@ submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value)
     displayBooks()
-    dialog.close();
 });
+
+cancelBtn.addEventListener("click", (e) =>{
+    e.preventDefault();
+    dialog.close();
+})
 
 displayBooks()
 
