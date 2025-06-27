@@ -36,6 +36,7 @@ function displayBooks(){
             td.innerText = book[property]
             tr.append(td)
         }
+        tr.dataset.index = book.id
         tbody.append(tr)
     })
 }
