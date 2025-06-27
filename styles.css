@@ -6,3 +6,11 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
+table{
+    border: 1px solid;
+}
+
+td {
+    padding: 8px;
+}
