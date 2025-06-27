@@ -7,6 +7,7 @@ const bookAuthor = document.getElementById("author")
 const bookPages = document.getElementById("pages")
 
 const table = document.getElementById("books-table")
+const tbody = document.querySelector("#books-table tbody")
 
 function Book(title, author, pages, status){
     if(!new.target){
@@ -25,22 +26,21 @@ function addBookToLibrary(title, author, pages, status){
 }
 
 function displayBooks(){
+    tbody.innerHTML = ""
     library.forEach(book => {
         const tr = document.createElement("tr")
         for(const property in book) {
-            console.log(`${property}: ${book[property]}`)
             const td = document.createElement("td")
             td.innerText = book[property]
             tr.append(td)
         }
-        table.append(tr)
+        tbody.append(tr)
     })
 }
 
 addBookToLibrary("The Hobbit", "aa", "230", true)
 addBookToLibrary("O guarani", "José de Alencar", "230", true)
 addBookToLibrary("A Sereia", "Kiera Cass", "200", false)
-console.log(library)
 
 showBtn.addEventListener("click", () => {
   dialog.showModal();
