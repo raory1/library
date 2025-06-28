@@ -22,6 +22,14 @@ function Book(title, author, pages, status){
     this.status = status
 }
 
+function removeBookFromLibrary(id){
+    const index = library.findIndex((book) => {
+        return book.id === id
+    })
+    library.splice(index, 1)
+    displayBooks()
+}
+
 function addBookToLibrary(title, author, pages, status){
     const book = new Book(title, author, pages, status)
     library.push(book)
@@ -65,4 +73,3 @@ cancelBtn.addEventListener("click", (e) =>{
 })
 
 displayBooks()
-
