@@ -35,6 +35,15 @@ function addBookToLibrary(title, author, pages, status){
     library.push(book)
 }
 
+function toggleReadStatus(id) {
+    library.find((book) => {
+        if(book.id === id){
+            book.status = !book.status
+        }
+    })
+    displayBooks()
+}
+
 function displayBooks(){
     tbody.innerHTML = ""
     library.forEach(book => {
@@ -45,15 +54,16 @@ function displayBooks(){
                 const checkbox = document.createElement("input")
                 checkbox.type = "checkbox"
                 checkbox.checked = book.status;
+                checkbox.addEventListener("change", () =>{
+                    toggleReadStatus(book.id)
+                })
                 td.append(checkbox)
             }
             else {
                 td.innerText = book[property]
             }
-            
             tr.append(td)
         }
-        
         tr.dataset.index = book.id
         tbody.append(tr)
     })
@@ -81,5 +91,6 @@ cancelBtn.addEventListener("click", (e) =>{
     e.preventDefault();
     dialog.close();
 })
+
 
 displayBooks()
