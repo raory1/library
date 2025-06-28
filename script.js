@@ -53,6 +53,7 @@ function displayBooks() {
     library.forEach((book) => {
         const tr = document.createElement("tr");
         for (const property in book) {
+            if (!Object.hasOwn(book, property)) continue;
             const td = document.createElement("td");
             if (property === "status") {
                 const checkbox = document.createElement("input");
