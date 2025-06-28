@@ -41,9 +41,19 @@ function displayBooks(){
         const tr = document.createElement("tr")
         for(const property in book) {
             const td = document.createElement("td")
-            td.innerText = book[property]
+            if (property === "status"){
+                const checkbox = document.createElement("input")
+                checkbox.type = "checkbox"
+                checkbox.checked = book.status;
+                td.append(checkbox)
+            }
+            else {
+                td.innerText = book[property]
+            }
+            
             tr.append(td)
         }
+        
         tr.dataset.index = book.id
         tbody.append(tr)
     })
