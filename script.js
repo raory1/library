@@ -22,6 +22,10 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 
+Book.prototype.toggleStatus = function () {
+    this.status = !this.status;
+};
+
 function removeBookFromLibrary(id) {
     const index = library.findIndex((book) => {
         return book.id === id;
@@ -38,10 +42,10 @@ function addBookToLibrary(title, author, pages, status) {
 function toggleReadStatus(id) {
     library.find((book) => {
         if (book.id === id) {
-            book.status = !book.status;
+            book.toggleStatus();
+            displayBooks();
         }
     });
-    displayBooks();
 }
 
 function displayBooks() {
@@ -63,13 +67,14 @@ function displayBooks() {
             }
             tr.append(td);
         }
-        const trashIcon = document.createElement("img")
-        trashIcon.src = "./trash.png"
-        trashIcon.addEventListener("click", () => removeBookFromLibrary(book.id))
+        const trashIcon = document.createElement("img");
+        trashIcon.src = "./trash.png";
+        trashIcon.addEventListener("click", () =>
+            removeBookFromLibrary(book.id)
+        );
         const td = document.createElement("td");
-        td.append(trashIcon)
+        td.append(trashIcon);
         tr.append(td);
-
 
         tr.dataset.index = book.id;
         tbody.append(tr);
