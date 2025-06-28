@@ -63,6 +63,14 @@ function displayBooks() {
             }
             tr.append(td);
         }
+        const trashIcon = document.createElement("img")
+        trashIcon.src = "./trash.png"
+        trashIcon.addEventListener("click", () => removeBookFromLibrary(book.id))
+        const td = document.createElement("td");
+        td.append(trashIcon)
+        tr.append(td);
+
+
         tr.dataset.index = book.id;
         tbody.append(tr);
     });
