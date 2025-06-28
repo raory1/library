@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+:root{
+    --text: #AA644A;
+    --text-secondary: #FFFFFF;
+    --background: #efe9fc;
+    --primary: #AA644A;
+    --secondary: #7FA4A9;
+    --accent: #80224d;
+    --gray: #D3D5E4;
+    --alert: #B91919;
+}
+
 *,
 *:after,
 *:before {
+    font-family: 'Poppins';
+    font-size: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -97,4 +112,31 @@ dialog {
         padding: 2rem;
         gap: 0.5rem
     }
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    padding: 16px;
+}
+
+#submitBtn, #cancelBtn{
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    height: 54px;
+    background-color: var(--primary);
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#cancelBtn{
+    background-color: var(--background);
+    color: var(--primary);
 }
