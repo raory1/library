@@ -80,6 +80,7 @@ button {
     width: 10rem;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 dialog {
